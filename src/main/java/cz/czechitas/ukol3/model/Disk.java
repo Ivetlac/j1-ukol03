@@ -8,7 +8,16 @@ public class Disk {
         this.kapacita = kapacita;
         this.vyuziteMisto = vyuziteMisto;
     }
+    public long getVyuziteMisto() {
+        return vyuziteMisto;
+    }
 
+    public void setVyuziteMisto(long novaKapacita) {
+        if (novaKapacita > kapacita) {
+            System.err.println("Nelze vytvaret soubory, nedostatek mista na disku.");
+        }
+        vyuziteMisto = novaKapacita;
+    }
     @Override
     public String toString() {
         return String.format("Disk: kapacita=%,d B a vyuzite misto=%,d B", kapacita, vyuziteMisto);

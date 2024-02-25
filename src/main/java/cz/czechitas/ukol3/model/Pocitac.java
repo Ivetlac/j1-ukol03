@@ -36,6 +36,35 @@ public class Pocitac {
         }
     }
 
+    public void vytvorSouborOVelikosti(long velikost) {
+        if (!jeZapnuty) {
+            System.out.println("Pocitac neni zapnuty.");
+            return;
+        }
+
+        long novaKapacita = pevnyDisk.getVyuziteMisto() + velikost;
+        try {
+            pevnyDisk.setVyuziteMisto(novaKapacita);
+            System.out.println("Soubor  byl vytvoren.");
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void vymazSouboryOVelikosti(long velikost) {
+        if (!jeZapnuty) {
+            System.out.println("Pocitac neni zapnuty.");
+            return;
+        }
+
+        long noveVyuziteMisto = pevnyDisk.getVyuziteMisto() - velikost;
+        try {
+            pevnyDisk.setVyuziteMisto(noveVyuziteMisto);
+            System.out.println("Soubory byly smazany.");
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+    }
     @Override
     public String toString() {
         return String.format("Pocitac: zapnuty=%b\n%s\n%s\n%s", jeZapnuty, cpu, ram, pevnyDisk);

@@ -58,6 +58,11 @@ public class Pocitac {
         }
 
         long noveVyuziteMisto = pevnyDisk.getVyuziteMisto() - velikost;
+        if (noveVyuziteMisto < 0) {
+            System.out.println("Nelze smazat soubory. Nedostatek volneho mista na disku.");
+            return;
+        }
+
         try {
             pevnyDisk.setVyuziteMisto(noveVyuziteMisto);
             System.out.println("Soubory byly smazany.");

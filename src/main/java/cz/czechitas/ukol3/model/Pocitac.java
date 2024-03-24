@@ -70,6 +70,7 @@ public class Pocitac {
             System.out.println(e.getMessage());
         }
     }
+
     @Override
     public String toString() {
         return String.format("Pocitac: zapnuty=%b\n%s\n%s\n%s", jeZapnuty, cpu, ram, pevnyDisk);
